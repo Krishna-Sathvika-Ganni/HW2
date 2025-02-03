@@ -2,9 +2,10 @@
 # A list of file extensions of the files that will be checked for Python code
 init-hook='import sys; sys.path.append(".")'
 extension-pkg-whitelist=pydantic
+# Remove the pylint_django plugin if not needed
+# load-plugins=pylint_django
 
 [MESSAGES CONTROL]
-# Only show these errors
 # Disable the following checks (example list):
 disable=
 
@@ -14,6 +15,9 @@ output-format=colorized
 
 # Include a report at the end of the log
 reports=yes
+
+# Remove 'report-full', it's not a valid option
+# report-full=no
 
 [DESIGN]
 # Maximum number of parents for a class (see R0901).
@@ -44,4 +48,4 @@ method-rgx=[a-z_][a-z0-9_]{2,50}$
 # Module names should have short, all-lowercase names. The use of underscores is discouraged.
 module-rgx=[a-z_][a-z0-9_]{1,30}$
 
-# Class names
+# Class names should follow the PEP-8 convention (CamelCase).
