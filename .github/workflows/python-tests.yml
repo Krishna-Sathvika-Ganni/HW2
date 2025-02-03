@@ -1,0 +1,37 @@
+name: Python Tests
+
+# Run the workflow when code is pushed or a pull request is created for the "main" branch
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest  # Use Ubuntu as the OS for running the tests
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2  # Fetches the code from GitHub
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.8'  # Define which Python version to use
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt  # Install project dependencies
+
+      - name: Run linting with pylint
+        run: |
+          pylint your_code.py  # Run linting on your Python file(s)
+
+      - name: Run tests with pytest
+        run: |
+          pytest tests/  # Run tests inside the 'tests' directory
+
