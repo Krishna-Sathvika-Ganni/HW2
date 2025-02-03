@@ -33,7 +33,7 @@ jobs:
       - name: Run Pylint
         run: |
           source venv/bin/activate
-          pylint src  # replace 'src' with the actual folder where your code resides
+          pylint .  # replace 'src' with the actual folder where your code resides
 
       - name: Run Tests
         run: |
