@@ -26,13 +26,13 @@ jobs:
     
     - name: Run Pylint
       run: |
-        # Run pylint on CALCULATOR directory files
-        pylint $(find CALCULATOR -name "*.py")
+        # Run pylint on calculator directory files
+        pylint $(find calculator -name "*.py")
     
     - name: Run Pytest with Coverage
       run: |
         # Run tests with coverage
-        pytest --cov=CALCULATOR --cov-report=xml TESTS/
+        pytest --cov=calculator --cov-report=xml tests/
     
     - name: Upload coverage to Codecov
       uses: codecov/codecov-action@v4
